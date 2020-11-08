@@ -12,6 +12,11 @@ public class TestPerson {
         // Given
         String expectedName = "";
         Integer expectedAge = Integer.MAX_VALUE;
+        double expectedShoeSize = 9.0;
+        int expectedWeight = 175;
+        boolean expectedIsMale = true;
+        char expectedGender = 'm';
+        int expectedHeightInch = 67;
 
         // When
         Person person = new Person();
@@ -19,9 +24,19 @@ public class TestPerson {
         // Then
         String actualName = person.getName();
         Integer actualAge = person.getAge();
+        double actualShoeSize = person.getShoeSize();
+        int actualWeight = person.getWeight();
+        boolean actualIsMale = person.isMale();
+        char actualGender = person.getGender();
+        int actualHeighInch = person.getHeightInch();
 
         Assert.assertEquals(expectedName, actualName);
         Assert.assertEquals(expectedAge, actualAge);
+        Assert.assertEquals(expectedShoeSize, actualShoeSize,.1);
+        Assert.assertEquals(expectedWeight, actualWeight);
+        Assert.assertEquals(expectedIsMale, actualIsMale);
+        Assert.assertEquals(expectedGender, actualGender);
+        Assert.assertEquals(expectedHeightInch, actualHeighInch);
     }
 
     @Test
@@ -95,4 +110,38 @@ public class TestPerson {
         Integer actual = person.getAge();
         Assert.assertEquals(expected, actual);
     }
+
+    @Test
+    public void testConstructorWithAllArgs() {
+        // Given
+        Integer expectedAge = 5;
+        String expectedName = "Leon";
+        double expectedShoeSize = 9.0;
+        int expectedWeight = 175;
+        boolean expectedIsMale = true;
+        char expectedGender = 'm';
+        int expectedHeightInch = 67;
+
+        // When
+        Person person = new Person(expectedName, expectedAge, expectedShoeSize, expectedWeight, expectedIsMale, expectedGender, expectedHeightInch);
+
+        // Then
+        Integer actualAge = person.getAge();
+        String actualName = person.getName();
+        double actualShoeSize = person.getShoeSize();
+        int actualWeight = person.getWeight();
+        boolean actualIsMale = person.isMale();
+        char actualGender = person.getGender();
+        int actualHeighInch = person.getHeightInch();
+
+        Assert.assertEquals(expectedAge, actualAge);
+        Assert.assertEquals(expectedName, actualName);
+        Assert.assertEquals(expectedShoeSize, actualShoeSize,.1);
+        Assert.assertEquals(expectedWeight, actualWeight);
+        Assert.assertEquals(expectedIsMale, actualIsMale);
+        Assert.assertEquals(expectedGender, actualGender);
+        Assert.assertEquals(expectedHeightInch, actualHeighInch);
+    }
+
+
 }
